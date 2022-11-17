@@ -7,16 +7,15 @@ import { NavLink, Link } from "react-router-dom";
 const Navbar1 = () => {
   return (
     <>
-      <br />
-      <Navbar bg="light" variant="light">
+      <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand>My Filaments!</Navbar.Brand>
-          <Nav className="me-auto">
+          <Nav className="">
             <div style={{ margin: "10px" }}>
               <NavLink
                 to="/"
                 style={({ isActive }) => ({
-                  color: isActive ? "blue" : "black",
+                  color: isActive ? "black" : "white",
                 })}
               >
                 Home
@@ -26,7 +25,7 @@ const Navbar1 = () => {
               <NavLink
                 to="/signup"
                 style={({ isActive }) => ({
-                  color: isActive ? "blue" : "black",
+                  color: isActive ? "black" : "white",
                 })}
               >
                 Sign Up
@@ -36,7 +35,7 @@ const Navbar1 = () => {
               <NavLink
                 to="/login"
                 style={({ isActive }) => ({
-                  color: isActive ? "blue" : "black",
+                  color: isActive ? "black" : "white",
                 })}
               >
                 Login
@@ -46,12 +45,13 @@ const Navbar1 = () => {
               <NavLink
                 to="/add_filament"
                 style={({ isActive }) => ({
-                  color: isActive ? "blue" : "black",
+                  color: isActive ? "black" : "white",
                 })}
               >
                 Add Filament
               </NavLink>
             </div>
+
             <Nav.Link active>Log out</Nav.Link>
           </Nav>
         </Container>

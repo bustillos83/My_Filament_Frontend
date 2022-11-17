@@ -7,13 +7,14 @@ import Login from "./components/Login";
 import HomePage from "./components/Home";
 import SignUp from "./components/SignUp";
 import AddFilament from "./components/AddFilament";
+import "./styles/main.css";
 
 let baseUrl = "http://localhost:8000";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="container">
+      <div className="">
         <Navbar />
 
         <Routes>
