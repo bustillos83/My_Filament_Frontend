@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { login } from "../auth";
+import { useNavigate } from "react-router-dom";
 
 let baseUrl = "http://localhost:8000";
 
-const Login = () => {
+const LoginPage = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate();
 
   //   console.log(watch("username"));
   //   console.log(watch("password"));
@@ -29,7 +32,10 @@ const Login = () => {
     };
     fetch(baseUrl + "/auth/login", requestOptions).then((res) =>
       res.json().then((data) => {
-        console.log(data);
+        console.log(data.access_token);
+        login(data.access_token);
+
+        navigate("/");
       })
     );
 
@@ -100,4 +106,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

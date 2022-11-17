@@ -2,8 +2,8 @@ import { createAuthProvider } from "react-token-auth";
 
 let baseUrl = "http://localhost:8000";
 
-export const [useAuth, authFetch, login, logout] = createAuthProvider({
-  getAccessTokenKey: "access_token",
+export const { useAuth, authFetch, login, logout } = createAuthProvider({
+  accessTokenKey: "access_token",
   onUpdateToken: (token) =>
     fetch(baseUrl + "/auth/refresh", {
       method: "POST",

@@ -1,4 +1,6 @@
-
+body{
+    background-color: rgb(36, 220, 240);
+}
 .container{
     margin-top:10px
 }
@@ -14,3 +16,7 @@
     
 }
 
+.titlePage{
+    padding: 10px;
+    text-align: center;
+}
