@@ -28,6 +28,15 @@ const LoggedInHome = (props) => {
       .catch((err) => console.log(err));
   }, []);
 
+  const getAllFilaments = () => {
+    fetch(baseUrl + "/filament/filaments")
+      .then((res) => res.json())
+      .then((data) => {
+        setFilaments(data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   // Modal
   const closedModal = () => {
     setShow(false);
@@ -49,11 +58,10 @@ const LoggedInHome = (props) => {
   };
   // ..................
 
+  let token = localStorage.getItem("REACT_TOKEN_AUTH_KEY");
   //Update Filament
   const UpdateFilament = (data) => {
     console.log(data);
-
-    let token = localStorage.getItem("REACT_TOKEN_AUTH_KEY");
 
     const requestOptions = {
       method: "PUT",
@@ -70,10 +78,34 @@ const LoggedInHome = (props) => {
           .json()
           .then((data) => {
             console.log(data);
+            const reload = window.location.reload();
+            reload();
           })
           .catch((err) => console.log(err))
     );
   };
+
+  //   delete function
+  const deleteFilament = (id) => {
+    console.log(id);
+
+    const requestOptions = {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${JSON.parse(token)}`,
+      },
+    };
+
+    fetch(baseUrl + `/filament/filaments/${id}`, requestOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        getAllFilaments();
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="filament">
       <Modal show={show} size="lg" onHide={closedModal}>
@@ -171,6 +203,9 @@ const LoggedInHome = (props) => {
           qty={filament.qty}
           onClick={() => {
             showModal(filament.id);
+          }}
+          onDelete={() => {
+            deleteFilament(filament.id);
           }}
         />
       ))}
