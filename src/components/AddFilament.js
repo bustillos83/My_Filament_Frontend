@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 let baseUrl = "http://localhost:8000";
 
@@ -12,6 +13,14 @@ const AddFilament = () => {
     formState: { errors },
   } = useForm();
 
+  //Route change to go back to home page
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = "/";
+    navigate(path);
+  };
+
+  const [show, setShow] = useState(false);
   const addFilament = (data) => {
     console.log(data);
 
@@ -109,6 +118,9 @@ const AddFilament = () => {
         <Form.Group>
           <Button variant="primary" onClick={handleSubmit(addFilament)}>
             Save
+          </Button>{" "}
+          <Button variant="danger" onClick={routeChange}>
+            Home
           </Button>
         </Form.Group>
       </form>
