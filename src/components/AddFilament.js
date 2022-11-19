@@ -28,7 +28,9 @@ const AddFilament = () => {
     };
     fetch(baseUrl + "/filament/filaments", requestOptions)
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        reset();
+      })
       .catch((err) => console.log(err));
   };
   return (

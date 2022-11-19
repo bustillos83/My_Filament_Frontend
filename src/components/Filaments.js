@@ -1,7 +1,7 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Modal, Button } from "react-bootstrap";
 
-const Filament = ({ name, type, color, qty }) => {
+const Filament = ({ name, type, color, qty, onClick }) => {
   return (
     <Card style={{ width: "10rem" }} className="Card">
       <Card.Body>
@@ -9,6 +9,9 @@ const Filament = ({ name, type, color, qty }) => {
         <Card.Text>Type: {type}</Card.Text>
         <Card.Text>Color: {color}</Card.Text>
         <Card.Text>Qty: {qty}</Card.Text>
+        <Button variant="primary" onClick={onClick}>
+          Update
+        </Button>
         <br></br>
       </Card.Body>
     </Card>
