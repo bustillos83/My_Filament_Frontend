@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import ReactDOM from "react-dom";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
@@ -9,12 +8,12 @@ import SignUp from "./components/SignUp";
 import AddFilament from "./components/AddFilament";
 import "./styles/main.css";
 
-let baseUrl = "http://localhost:8000";
+let baseUrl = process.env.REACT_APP_BACKEND_URL;
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="">
+      <div className="bg">
         <Navbar />
 
         <Routes>

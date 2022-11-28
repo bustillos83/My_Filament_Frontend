@@ -1,19 +1,21 @@
 import React from "react";
+import pic from "../images/logo.png";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth, logout } from "../auth";
+import { MDBFooter } from "mdb-react-ui-kit";
 
 const LoggedInLinks = () => {
   return (
     <>
-      <Nav className="">
+      <Nav className="" id="main-nav">
         <div style={{ margin: "10px" }}>
           <NavLink
             to="/"
             style={({ isActive }) => ({
-              color: isActive ? "black" : "white",
+              color: isActive ? "white" : "black",
               textDecoration: "none",
             })}
           >
@@ -24,7 +26,7 @@ const LoggedInLinks = () => {
           <NavLink
             to="/add_filament"
             style={({ isActive }) => ({
-              color: isActive ? "black" : "white",
+              color: isActive ? "white" : "black",
               textDecoration: "none",
             })}
           >
@@ -50,7 +52,7 @@ const LoggedInLinks = () => {
 const LoggedOutLinks = () => {
   return (
     <>
-      <Nav className="">
+      <Nav className="" id="main-nav">
         <div style={{ margin: "10px" }}>
           <NavLink
             to="/"
@@ -83,6 +85,7 @@ const LoggedOutLinks = () => {
           >
             Login
           </NavLink>
+          <div style={{ margin: "10px" }}></div>
         </div>
       </Nav>
     </>
@@ -91,14 +94,43 @@ const LoggedOutLinks = () => {
 
 const Navbar1 = () => {
   const [logged] = useAuth();
+
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = "/";
+    navigate(path);
+  };
   return (
     <>
-      <Navbar bg="primary" variant="dark">
+      <Navbar className="bg-custom">
         <Container>
-          <Navbar.Brand>My Filaments!</Navbar.Brand>
+          <Navbar.Brand onClick={routeChange} href="#">
+            <img src={pic} alt="My Filament!" />
+          </Navbar.Brand>
           {logged ? <LoggedInLinks /> : <LoggedOutLinks />}
         </Container>
       </Navbar>
+
+      <MDBFooter
+        id="footer"
+        className="text-center text-white"
+        style={{ backgroundColor: "#21081a" }}
+      >
+        <div
+          className="text-center p-0"
+          id="footer"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        >
+          © 2022 Copyright:{" "}
+          <a
+            className="text-white"
+            href="https://www.linkedin.com/in/fernandobustillos/"
+            target="blank"
+          >
+            Fernando Bustillos
+          </a>
+        </div>
+      </MDBFooter>
     </>
   );
 };

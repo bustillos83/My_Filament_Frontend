@@ -4,8 +4,10 @@ import { useAuth } from "../auth";
 import Filament from "./Filaments";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import "../styles/main.css";
+import Container from "react-bootstrap/Container";
 
-let baseUrl = "http://localhost:8000";
+let baseUrl = process.env.REACT_APP_BACKEND_URL;
 
 const LoggedInHome = (props) => {
   const [filaments, setFilaments] = useState([]);
@@ -107,11 +109,11 @@ const LoggedInHome = (props) => {
   };
 
   return (
-    <div className="filament">
+    <div className="bg">
       <Modal show={show} size="lg" onHide={closedModal}>
         <Modal.Header closeButton>
           <Modal.Title>
-            <p>Update Filament</p>
+            <p>Update Filament </p>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -193,34 +195,58 @@ const LoggedInHome = (props) => {
           </form>
         </Modal.Body>
       </Modal>
-      <h1 className="titlePage">Your Filaments!</h1>
-      {filaments.map((filament) => (
-        <Filament
-          key={filament.id}
-          name={filament.name}
-          type={filament.type}
-          color={filament.color}
-          qty={filament.qty}
-          onClick={() => {
-            showModal(filament.id);
-          }}
-          onDelete={() => {
-            deleteFilament(filament.id);
-          }}
-        />
-      ))}
+      <h1 className="heading">Your Filaments!</h1>
+      <div className="yourCards">
+        {filaments.map((filament) => (
+          <Filament
+            key={filament.id}
+            name={filament.name}
+            type={filament.type}
+            color={filament.color}
+            qty={filament.qty}
+            onClick={() => {
+              showModal(filament.id);
+            }}
+            onDelete={() => {
+              deleteFilament(filament.id);
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 };
 
 const LoggedOutHome = () => {
   return (
-    <div className="home container">
-      <h1 className="heading">My Filaments!</h1>
-      <Link to="/signup" className="btn btn-primary btn-lg">
-        Get started
-      </Link>
-    </div>
+    <Container>
+      <div className="welcome">
+        <h1 className="homeTitle">My Filament!</h1>
+
+        <h3>
+          Welcome to My Filament, this website is designed to keep a record of
+          your 3D printer Filaments, add as many as you like, edit or delete
+          them. Click button below to create an account or login if you already
+          have one.
+        </h3>
+
+        <Link
+          to="/signup"
+          className="btn btn-outline-dark btn-lg"
+          id="start-btn"
+        >
+          Get started
+        </Link>
+
+        <Link
+          to="/login"
+          className="btn btn-outline-primary btn-lg"
+          id="login-btn"
+        >
+          Login
+        </Link>
+      </div>
+    </Container>
   );
 };
 

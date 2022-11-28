@@ -1,13 +1,76 @@
-body{
+body, html{
+    height: 100%;
     
-    background-color: rgb(36, 220, 240);
+   
+}   
+
+
+
+
+  
+.bg{
+ background-image: url("https://i.imgur.com/x9rSN7u.jpg");
+
+ height: auto;
+ background-color: rgb(39, 142, 206);
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+
+
+}
+
+
+
+.welcome{
+    
+    width: 520px;
+}
+    
+img {
+    margin-top: -40px;
+    margin-bottom: -25px;
+    width: 150px;
+    height: 150px;
 }
 .container{
     margin-top:10px
 }
+
+h1 {
+
+    font-size: 4em;
+    color: transparent;
+    animation: effect 2s linear infinite;
+    
+}
+@keyframes effect {
+    0% {
+        background: linear-gradient(
+            #803700, #ff7300);
+        -webkit-background-clip: text;
+    }
+
+    100% {
+        background: linear-gradient(
+            #3CE7D7, #000FFF);
+        -webkit-background-clip: text;
+    }
+
+    50% {
+        background: linear-gradient(
+            #e73ce7, #ff0062);
+        -webkit-background-clip: text;
+    }
+}
+
+
 .heading{
+    margin-top: 20px;
+    margin-left: 80px;
     text-align: center;
-    font-size: 3em;
+    
+    
     
 }
 
@@ -20,23 +83,52 @@ body{
     
 }
 
-.titlePage{
+.homeTitle{
     padding: 10px;
     text-align: center;
 }
 
-.Card{
-    margin-top: 25px;
-    margin-left: 46%;
-    margin-right: 46%;
-    margin-bottom: 20px;
+
+
+
+#start-btn{
+    margin-top: 100px;
+    margin-left: 90px;
+
+}
+#login-btn{
+
+    margin-top: 100px;
+    margin-left: 10px;
+} 
+.bg-custom {
+    background-image: linear-gradient(-15deg, #13547a 0%, #80d0c7 100%);
+    }
+
+#main-nav{
+        font-size:x-large
+    }
+
+#footer{
+   
+   position:fixed;
+   bottom: 0px;
+   background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+   width: 100%;
+   height: 60px;
+}
+
+
+
+.yourCards{
+    display: grid;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: center;
     text-align: center;
-
+    grid-template-rows: repeat(6,200px);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    
+    
 }
-
-/* input[type="text"]{
-    width: 200px;
-}
-input[type="integer"]{
-    width: 200px;
-} */
