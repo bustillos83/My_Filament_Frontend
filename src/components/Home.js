@@ -14,7 +14,6 @@ const LoggedInHome = (props) => {
   const [show, setShow] = useState(false);
   const {
     register,
-    reset,
     handleSubmit,
     setValue,
     formState: { errors },
@@ -221,7 +220,7 @@ const LoggedOutHome = () => {
   return (
     <Container>
       <div className="welcome">
-        <h1 className="homeTitle">My Filament!</h1>
+        <h1 className="heading">My Filament!</h1>
 
         <h3>
           Welcome to My Filament, this website is designed to keep a record of

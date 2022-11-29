@@ -1,25 +1,28 @@
-body, html{
+/* body,html{
+    
     height: 100%;
     
-   
-}   
-
-
-
+}     */
 
   
-.bg{
- background-image: url("https://i.imgur.com/x9rSN7u.jpg");
+body,html{
+ 
+    height: 100vh;
+    background-image: url("https://i.imgur.com/x9rSN7u.jpg");
+    background-position: top center; 
+    background-repeat: no-repeat;
+    overflow:auto;
+    background-size: cover;
+    
+    
+    
+ 
+  } 
+  
 
- height: auto;
- background-color: rgb(39, 142, 206);
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
-
-
-}
-
+  @media (min-width: 650px ) {
+    
+  }   
 
 
 .welcome{
@@ -29,12 +32,14 @@ body, html{
     
 img {
     margin-top: -40px;
+    position:static;
     margin-bottom: -25px;
     width: 150px;
     height: 150px;
 }
 .container{
-    margin-top:10px
+    margin-top:10px;
+    flex:content;
 }
 
 h1 {
@@ -66,7 +71,7 @@ h1 {
 
 
 .heading{
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: 80px;
     text-align: center;
     
@@ -87,6 +92,7 @@ h1 {
     padding: 10px;
     text-align: center;
 }
+
 
 
 
@@ -124,11 +130,21 @@ h1 {
     display: grid;
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 10%;
     justify-content: center;
     text-align: center;
-    grid-template-rows: repeat(6,200px);
+    grid-template-rows: (6,200px);
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 10px;
     
+    
+}
+
+.cardBody{
+    color: #101010;
+    background-image: url("https://i.imgur.com/l8rrMEo.jpg");
+    background-size: 100%;
+    
+     
     
 }

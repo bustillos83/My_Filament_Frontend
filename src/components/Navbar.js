@@ -10,7 +10,7 @@ import { MDBFooter } from "mdb-react-ui-kit";
 const LoggedInLinks = () => {
   return (
     <>
-      <Nav className="" id="main-nav">
+      <Nav className="" id="main-nav" expand="lg">
         <div style={{ margin: "10px" }}>
           <NavLink
             to="/"

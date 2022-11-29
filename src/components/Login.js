@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -46,14 +46,14 @@ const LoginPage = () => {
 
   return (
     <div className="container">
-      <div className="'form">
+      <div className="form">
         <h1>Welcome! </h1>
         <p>
           <h4>Please log in to continue</h4>
         </p>
-        <form>
+        <Form>
           <Row>
-            <Col xs={4}>
+            <Col lg={4}>
               <Form.Group>
                 <Form.Label>Username</Form.Label>
                 <Form.Control
@@ -109,7 +109,7 @@ const LoginPage = () => {
               </Form.Group>
             </Col>
           </Row>
-        </form>
+        </Form>
       </div>
     </div>
   );
